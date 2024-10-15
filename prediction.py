@@ -5,7 +5,7 @@ import streamlit as st
 
 def download_model():
     # Direct download link from Google Drive
-    url = "https://drive.google.com/uc?export=download&id=1Ph1DAiX2GCZ3kuCUbj9e1u09w4-8ilTo"  # Replace with your direct download link
+    url = "https://drive.google.com/uc?export=download&id=1Ph1DAiX2GCZ3kuCUbj9e1u09w4-8ilTo"
     model_path = "RF_model.sav"
     
     # Check if the model file already exists
@@ -28,7 +28,6 @@ def download_model():
 
     return model_path
 
-
 def predict(data):
     # Ensure the model is downloaded
     model_path = download_model()
@@ -44,7 +43,9 @@ def predict(data):
         st.write("Model loaded successfully.")
 
         # Make predictions
-        return RF.predict(data)
+        result = RF.predict(data)
+        st.write("Prediction made successfully.")
+        return result
     except Exception as e:
-        st.error(f"Error loading the model: {e}")
+        st.error(f"Error during prediction: {e}")
         return None
