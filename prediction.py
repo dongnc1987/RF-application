@@ -1,4 +1,7 @@
+import os
 import joblib
+import requests
+import streamlit as st
 
 def download_model():
     # Direct download link from Google Drive
